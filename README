@@ -1,0 +1,61 @@
+pscan  −  A  tiny  portscanner
+
+pscan <‐H Host[,Host2,HostN]> [‐p <Port[‐Port]>] [‐P [N]] [‐o <outfile>]  [‐v]
+
+The  pscan  utility will  scan  ports on a specified host by using the connect() scan method.
+
+The following operands are supported:
+
+	host     The hostname or IP‐Adress which should be scanned.
+	
+	port     A non‐negative decimal integer  specifying  the  portnumber to scan.
+
+
+The following options are supported:
+
+         ‐H host  This  option  must  be given. The parameter for
+                  this option  is  the  hostname  which  will  be
+                  scanned.  (Separated  by  comma, if you want to
+                  scan more than one host).
+
+
+
+         ‐p port  This option is optional. The parameter for this
+                  option  is  a  single port or a portrange to be
+                  scanned.
+
+
+
+         ‐h       This option is optional and will print the  us‐
+                  age message.
+
+
+
+         ‐P [N]   This  option is optional. If defined ‐PN, pscan
+                  does not ping the host before scanning. If host
+                  is  down,  pscan always print out, that the re‐
+                  mote port is closed.
+
+
+
+         ‐o       This option is optional. If set,  pscan  writes
+                  stdout to a file.
+
+
+
+         ‐v       This  option is optional and will show the ver‐
+                  sion number of pscan.
+
+
+	Example 1: Scan a hosts full portrange (1 up to 65535)
+	example% pscan ‐H hostname
+
+	Example 2: Scan a host with a special port specified
+	example% pscan ‐H hostname ‐p 22
+
+	Example 3: Scan different  hosts  with  a  special  port specified
+	example% pscan ‐H hostname1,hostname2,hostnameN ‐p 22
+
+	Example  4:  Scan a host with a special portrange specified
+	example% pscan ‐H hostname ‐p 22‐79
+
