@@ -1,0 +1,127 @@
+'\" te
+.\"  Copyright 2010 J.Stiegler
+.\"| All Rights Reserved
+.TH pscan 1 "1 Jul 2010" "SunOS 5.10" "User Commands"
+.SH "NAME"
+pscan \- A tiny portscanner
+.SH "SYNOPSIS"
+.PP
+\fBpscan\fR \fI<-H Host[,Host2,HostN]> [-p <Port[-Port]>] [-P [N]] [-o <outfile>] [-v]\fR
+.SH "DESCRIPTION"
+.PP
+The \fBpscan\fR utility will scan ports on a specified host by using the connect() scan method\&.
+.SH "OPERANDS"
+.PP
+The following operands are supported:
+.sp
+.ne 2
+.mk
+\fB\fIhost\fR \fR
+.in +9n
+.rt
+The hostname or IP-Adress which should be scanned\&.
+.PP
+.sp
+.ne 2
+.mk
+\fB\fIport\fR \fR
+.in +9n
+.rt
+A non-negative decimal integer specifying the portnumber to scan\&.
+.sp
+.sp 1
+.in -9n
+.SH "OPTIONS"
+.PP
+The following options are supported:
+.sp
+.ne 2
+.mk
+\fB-\fBH \fIhost\fR\fR
+.in +9n
+.rt
+This option must be given. The parameter for this option is the hostname which will be scanned. (Separated by comma, if you want to scan more than one host)\&.
+.sp
+.sp 1
+.in -9n
+.sp
+.ne 2
+.mk
+\fB-\fBp \fIport\fR\fR
+.in +9n
+.rt
+This option is optional. The parameter for this option is a single port or a portrange to be scanned\&.
+.sp
+.sp 1
+.in -9n
+.sp
+.ne 2
+.mk
+\fB-\fBh\fR\fR
+.in +9n
+.rt
+This option is optional and will print the usage message\&.
+.sp
+.sp 1
+.in -9n
+.sp
+.ne 2
+.mk
+\fB-\fBP \fI[N]\fR\fR
+.in +9n
+.rt
+This option is optional. If defined -PN, pscan does not ping the host before scanning. If host is down, pscan always print out, that the remote port is closed\&.
+.sp
+.sp 1
+.in -9n
+.sp
+.ne 2
+.mk
+\fB-\fBo\fR\fR
+.in +9n
+.rt
+This option is optional. If set, pscan writes stdout to a file\&.
+.sp
+.sp 1
+.in -9n
+.sp
+.ne 2
+.mk
+\fB-\fBv\fR\fR
+.in +9n
+.rt
+This option is optional and will show the version number of pscan\&.
+.sp
+.sp 1
+.in -9n
+.SH "EXAMPLES"
+.PP
+\fBExample 1: Scan a hosts full portrange (1 up to 65535)\fR
+.PP
+.nf
+example% \fBpscan -H hostname\fR
+.fi
+.PP
+\fBExample 2: Scan a host with a special port specified\fR
+.PP
+.nf
+example% \fBpscan -H hostname -p 22\fR
+.fi
+.PP
+\fBExample 3: Scan different hosts with a special port specified\fR
+.PP
+.nf
+example% \fBpscan -H hostname1,hostname2,hostnameN -p 22\fR
+.fi
+.PP
+\fBExample 4: Scan a host with a special portrange specified\fR
+.PP
+.nf
+example% \fBpscan -H hostname -p 22-79\fR
+.fi
+.TE
+.sp
+.SH "SEE ALSO"
+.PP
+\fBperl\fR(1)
+...\" created by hand, Sat 10 Jul 2010, 13:56
